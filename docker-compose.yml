@@ -1,0 +1,31 @@
+version: "3.5"
+services:
+
+  db:
+    image: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: todo_docker
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+
+  front-end:
+    container_name: front-end
+    build:
+
+
+      context:     # absolute/path/to/dockerfile --> where dockerfile exists
+      dockerfile:  #absolute/path/to/dockerfile/(Dockerfile)
+    volumes:
+      # - '.:absolute/path/to/(/usr/src/app)'
+      # -'absolute/path/to/(/usr/src/app/node_modules)'
+
+
+    ports:
+      - '4200:4200'
